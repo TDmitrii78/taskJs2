@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- -------------------------------------------------------------------------------- -->
+
+    <!--
+    <ol id="elem">
+        <li>Привет</li>
+        <li>Мир</li>
+      </ol>
+      
+      <!-- <script>
+        function clear(elem) { 
+            elem.innerHTML = "";
+        }
+        clear(elem); 
+      </script> 
+    -->
+
+    <!--
+    <script>
+        const ul = document.createElement('ul');
+        document.body.append(ul);
+        let flag = 0;
+        while (true) {
+            const text = prompt("Введите текст");
+            if (!text) {
+                break;
+            }
+            flag++;
+            const li = document.createElement('li');
+            li.innerText = text;
+            ul.append(li);
+        } 
+        if (!flag) {
+            ul.remove();
+        }
+    </script>
+    -->
+
+<!-- ----------------------------------------------------------------------------------------- -->
+
+<!---
+<div id="container"></div>   
+    <script>
+        let data = {
+            "Рыбы": {
+                "форель": {},
+                "лосось": {}
+            },
+
+            "Деревья": {
+                "Огромные": {
+                    "секвойя": {},
+                    "дуб": {}
+                },
+                "Цветковые": {
+                    "яблоня": {},
+                    "магнолия": {}
+                }
+            }
+        }; 
+
+        
+        function creatTree(target, obj) {
+            if (!Object.keys(obj).length) {
+                return;
+            }
+            const ul = document.createElement('ul'); 
+            target.append(ul);
+            for (let key in obj) {
+                const li = document.createElement('li');
+                li.innerText = key;
+                ul.append(li);
+                target = li;  
+                creatTree(target, obj[key]);
+            }
+        }
+
+        let conainer = document.querySelector("#container");
+        creatTree(conainer, data);
+
+
+        function creatTree(target, obj) {
+            function tree(target, obj) {
+                if (!Object.keys(obj).length) {
+                    console.log("123");
+                    return "";
+                }
+                let resHtml = "<ul>";     
+                    for (let key in obj) {
+                        resHtml += `<li>${key}</li>`;
+                        resHtml += tree(target, obj[key]);
+                    }
+                return resHtml += "</ul>";
+            }
+            target.innerHTML = tree(target, obj);
+        }
+
+        let container = document.querySelector('#container');  
+        creatTree(container, data);
+    </script> -->
+
+    <!-- ----------------------------------------------------------------------------- -->
+
+    <ul>
+    <li>Животные
+      <ul>
+        <li>Млекопитающие
+          <ul>
+            <li>Коровы</li>
+            <li>Ослы</li>
+            <li>Собаки</li>
+            <li>Тигры</li>
+          </ul>
+        </li>
+        <li>Другие
+          <ul>
+            <li>Змеи</li>
+            <li>Птицы</li>
+            <li>Ящерицы</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Рыбы
+      <ul>
+        <li>Аквариумные
+          <ul>
+            <li>Гуппи</li>
+            <li>Скалярии</li>
+          </ul>
+        </li>
+        <li>Морские
+          <ul>
+            <li>Морская форель</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+<script>
+    const numLi = document.body.querySelectorAll("li");
+    for (let i = 0; i < numLi.length - 1; i++) {
+        let res = numLi[i].querySelectorAll('li').length;
+        if (res === 0) {
+            continue;
+        }
+        numLi[i].firstChild.data += `[${res}]`;
+    }
+</script>
+    
+</body>
+</html>
